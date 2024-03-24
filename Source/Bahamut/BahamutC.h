@@ -36,7 +36,7 @@ public:
 
 
 	// takes an array of any type and randomizes it
-	void randomize(TArray < AActor* >);
+	void randomize(TArray < AActor* >&);
 	void randomizeINT(int*);
 
 	FVector radomloc(float , float);
