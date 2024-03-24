@@ -95,12 +95,12 @@ FVector ABahamutC::radomloc(float x, float y)
 
 //Randomizes an array of type TArray (array of actor objects)
 
-void ABahamutC::randomize(TArray < AActor* > a)
+void ABahamutC::randomize(TArray < AActor* > &a)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		int x = rand() % 2;
-		int y = rand() % 2;
+		int x = rand() % 3;
+		int y = rand() % 3;
 		if (x != y)
 			{
 				a.Swap(x, y);
