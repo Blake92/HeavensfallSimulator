@@ -41,7 +41,7 @@ void ABahamutC::dive()
 	FTransform tran;
 	FVector loc = this->GetActorLocation();
 	tran.SetLocation(loc);
-	loc = { 50,15,1 };
+	loc = { 50,20,1 };
 	AActor * spawn = GetWorld()->SpawnActor<AActor>(aoe,tran);
 	spawn->SetActorScale3D(loc);
 	FRotator rota = this->GetActorRotation();
