@@ -63,7 +63,7 @@ void ABahamutC::dive()
 
 void ABahamutC::heavensfall()
 {
-	TArray < AActor* > NPCArray; // make an array of NPC characters
+	TArray < AActor* > NPCArray; // make a dynamic array of NPC characters
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ANPCc::StaticClass(), NPCArray); // get all child characters of class NPC and put them in the NPC array
 	randomize(NPCArray);
 	// teleports the first enemy in NPCArray at one of the positions at the outer ring in the arena, then teleports the other enemies one by one at the positions directly after
@@ -93,14 +93,14 @@ FVector ABahamutC::radomloc(float x, float y)
 	return loc;
 }
 
-//Randomizes an array of type TArray (array of actor objects)
-
-void ABahamutC::randomize(TArray < AActor* > &a)
+//Randomizes an array of type TArray (templated dynamic array)
+template <class t>
+void ABahamutC::randomize(TArray < t* > &a)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		int x = rand() % 3;
-		int y = rand() % 3;
+		int x = rand() % int(a.Num());
+		int y = rand() % int(a.Num());
 		if (x != y)
 			{
 				a.Swap(x, y);
@@ -113,7 +113,7 @@ void ABahamutC::randomize(TArray < AActor* > &a)
 
 void ABahamutC::randomizeINT(int * a)
 {
-	int max = 1;
+	int max = 0;
 	int n = 0;
 	while (a[n] != NULL) { max++; n++; }
 	for (int i = 0; i < 10; i++)

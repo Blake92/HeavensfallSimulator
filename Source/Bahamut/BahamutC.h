@@ -35,8 +35,9 @@ public:
 	void heavensfall();
 
 
-	// takes an array of any type and randomizes it
-	void randomize(TArray < AActor* >&);
+	// takes a templated array of any type and randomizes it
+	template < class t>
+	void randomize(TArray < t* >&);
 	void randomizeINT(int*);
 
 	FVector radomloc(float , float);
